@@ -1,0 +1,39 @@
+﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Pesquisar Encomendas";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-left">
+    
+    
+            <div>
+                <label>Nome do Produto:</label>
+                <input type="text" id="produtoPesquisa">               
+
+
+                <button id="ok">Pesquisar</button>       
+                <button class="text-right" id="listarTodos">Listar todos</button>
+       
+
+                <input type="hidden" id="email" value="@User.Identity?.Name">
+            </div> 
+    <hr>
+    
+<div id="lista">
+
+</div>    
+
+
+
+
+<script src="~/js/Pesquisa.js"></script>
+   
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Rastreator";
+}
+
+<div class="text-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div>
+            <label>Nome do Produto:</label>
+            <input type="text" id="produto" placeholder="Digite o nome do produto.." >
+            <label>Empresa:</label>
+            <input type="text" id="empresa" placeholder="Digite o nome da empresa.." >
+            <label>Codigo do Rastreio:</label>
+            <input type="text" id="rastreio" placeholder="Digite o codigo de rastreio..">
+            <label for="dataCompra">Data da Compra:</label>
+            <input type="datetime-local"
+               id="dataCompra"
+               name="dataDaCompra" required/>
+           
+
+            <button id="ok">Adicionar</button>
+
+            <input type="hidden" id="email" value="@User.Identity?.Name">
+        </div>
+
+        <div id="listahome">
+        </div>
+
+        <script src="~/js/home.js"></script>
+    }
+
+
+    <hr>
+</div>
